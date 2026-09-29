@@ -1,0 +1,28 @@
+# Swift and Xcode
+.build/
+.swiftpm/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.key
+*.pem
+credentials.json
+*storage-state*.json
+*.keychain*
+# Private diagnostics and generated artifacts
+.local/
+private/
+logs/
+*.log
+coverage/
+# GSD artifacts are deliberately tracked
+
+# Regenerable research cache
+.planning/research/.cache/
