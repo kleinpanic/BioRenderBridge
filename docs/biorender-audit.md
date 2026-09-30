@@ -98,3 +98,33 @@ No support message has been sent. These questions are for a later explicitly aut
 ## Audit limits
 
 This audit proves the public discovery responses at one timestamp. Authenticated protocol, token lifetimes, SDK behavior and native acceptance require later controlled tests. A shared adapter can improve persistence while authorization remains valid and make failure actionable; the project must not promise never to require login again.
+
+## September 30 recurrence and implementation gate
+
+At **2026-09-30T17:27:48Z**, the current Codex 0.159.0 startup log again recorded BioRender initialization failing because its HTTP headers helper exited with status 1. A direct helper check later in the same diagnostic turn reproduced `invalid_grant` from the saved refresh credential and exited 1. The helper reported that no browser was opened. No token value, account identifier or private log dump is retained here.
+
+This is new evidence that the existing setup did not sustain authorization after the earlier recovery. It does not establish whether expiry, revocation, rotation, client binding or an upstream defect caused rejection, and it does not establish current Claude or OpenCode failure: those clients were not freshly tested in this incident. Reauthorization is temporary recovery, not closure of the persistence defect.
+
+A separate startup failure at **2026-09-30T17:27:47Z** concerned Peekaboo's daemon ownership record and selected socket. It is a separate operational follow-up, not an OAuth failure and not a BioRenderBridge deliverable. No Peekaboo repair occurred here.
+
+### Required causal investigation
+
+Before Phase 2 product implementation, Phase 1 must produce a sanitized evidence timeline and distinguish competing explanations using controlled tests. Record actual token issue/expiry times, registration binding, credential generation/write transitions and refresh request timing without storing tokens or private content. Compare a single-owner baseline with concurrent clients using controlled independent grants; do not assume separate harness authorizations share or race on one token. Control restart, sleep and network variables. Do not deliberately revoke a working grant or contact the provider without appropriate user authorization.
+
+| Hypothesis | Discriminating evidence needed | Status |
+|---|---|---|
+| Local stale/rotated token reuse | Generation and write-order trace showing reuse or excluding it under a single owner | Unknown |
+| Lost rotation response or failed persistence | Request outcome and durable-write fault evidence; uncertain responses labeled explicitly | Unknown |
+| Client or registration mismatch | Protected comparison of registration binding and token request construction | Unknown |
+| Provider absolute/idle expiry or revocation | Controlled elapsed-time observations or authoritative provider clarification | Unknown |
+| Upstream service defect or separate session policy | Reproducible minimal case after local hypotheses are tested; provider evidence if available | Unknown |
+
+### Go / revise / blocked decision
+
+Record which observed failure a shared Swift broker can prevent and the evidence linking the proposed mechanism to that failure. A new language, immediate refresh success, malformed discovery metadata or theoretical race prevention is insufficient causal proof.
+
+- **Go:** evidence supports a locally correctable failure and the proposed mechanism passes a targeted reproduction, with remaining limitations stated. This permits implementation; it is not persistence acceptance.
+- **Revise:** evidence favors another mechanism or integration; revise the architecture and requirements before Phase 2.
+- **Blocked:** provider policy/behavior or insufficient evidence prevents a supported durable remedy. Keep the gate open, record the dependency and next discriminating test; do not silently downgrade the objective to repeated manual login.
+
+Small diagnostic probes and feasibility experiments are allowed within Phase 1 when that phase is authorized. Product implementation, installation and harness migration remain gated. Retain Phase 7's real-expiration and overnight acceptance after any proposed remedy.

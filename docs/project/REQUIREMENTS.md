@@ -5,13 +5,16 @@
 
 ## v1 Requirements
 
-All requirements below are unimplemented. This session initializes the project only.
+All requirements below are unimplemented. This update revises planning only; implementation remains paused.
 
 ### Protocol and provider contract
 
 - [ ] **SPEC-01**: Maintainers can inspect a dated compatibility matrix identifying exact downstream clients, upstream revision, candidate SDK release and supported MCP revisions; unsupported combinations fail explicitly.
 - [ ] **SPEC-02**: Maintainers can reproduce sanitized BioRender discovery fixtures and review any exact-origin compatibility exception without weakening issuer, resource or endpoint validation globally.
 - [ ] **SPEC-03**: Maintainers can review a threat model covering OAuth callbacks, upstream content, local peers, credential storage and ambiguous retries before selecting IPC and deployment mechanisms.
+
+- [ ] **SPEC-04**: Maintainers can inspect a sanitized recurrence timeline and controlled evidence distinguishing local rotation/persistence/client-binding failures from provider expiry, revocation or unresolved behavior; unknown causes remain labeled unknown.
+- [ ] **SPEC-05**: Before Phase 2 implementation, maintainers record a go/revise/blocked feasibility decision linking the proposed remedy to observed failure evidence; a Swift rewrite or repeated login alone cannot satisfy the gate.
 
 ### Swift and dependency integrity
 
@@ -89,6 +92,8 @@ Each v1 requirement maps to exactly one owning phase. Pending means unimplemente
 | SPEC-01 | Phase 1 | Pending |
 | SPEC-02 | Phase 1 | Pending |
 | SPEC-03 | Phase 1 | Pending |
+| SPEC-04 | Phase 1 | Pending |
+| SPEC-05 | Phase 1 | Pending |
 | BUILD-01 | Phase 1 | Pending |
 | BUILD-02 | Phase 2 | Pending |
 | AUTH-01 | Phase 2 | Pending |
@@ -119,15 +124,17 @@ Each v1 requirement maps to exactly one owning phase. Pending means unimplemente
 | PROOF-03 | Phase 7 | Pending |
 
 **Coverage:**
-- v1 requirements: 31 total
-- Mapped to phases: 31
+- v1 requirements: 33 total
+- Mapped to phases: 33
 - Unmapped: 0
 - Duplicate ownership: 0
 - Implemented: 0
 
 ## Acceptance Rules
 
+The September 30 recurrence keeps the persistence defect open. SPEC-04 and SPEC-05 are mandatory Phase 1 exit gates; Phase 7 must reproduce the relevant failing conditions after the remedy and retain the elapsed-time requirements. Peekaboo daemon repair is tracked separately and cannot be claimed as a BioRenderBridge outcome.
+
 Fixture tests, current real connectivity, installed-client acceptance and elapsed persistence are separate evidence classes. Failures and upstream policy limits stay visible. Review the [audit](../biorender-audit.md) and [research summary](research/SUMMARY.md) before planning. Protocol behavior follows the exact supported revision, not an assumed universal initialize handshake.
 
 ---
-*Last updated: 2026-09-29 during project initialization.*
+*Last updated: 2026-09-30 after recurrent refresh rejection.*

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Deliver a native Swift bridge that owns one BioRender authorization and serves three independently verified MCP clients. First resolve protocol, SDK and trust contracts; then deliver deliberate authorization, durable recovery, isolated forwarding, reversible installation, installed-client acceptance and real-expiry evidence. All 31 v1 requirements are unimplemented. Initialization is complete; execution is paused awaiting user direction. No phase plans or implementation are authorized by this initialization handoff.
+Deliver a native Swift bridge that owns one BioRender authorization and serves three independently verified MCP clients. First resolve protocol, SDK and trust contracts; then deliver deliberate authorization, durable recovery, isolated forwarding, reversible installation, installed-client acceptance and real-expiry evidence. All 33 v1 requirements are unimplemented. Initialization is complete; execution is paused awaiting user direction. No phase plans or implementation are authorized by this initialization handoff.
 
 Granularity: fine. Phase IDs: sequential (the configured project code is only a directory prefix). Use MVP vertical slices when planning runnable capabilities; the initial compatibility gate and final elapsed-evidence gate have distinct acceptance boundaries.
 
@@ -23,13 +23,16 @@ Granularity: fine. Phase IDs: sequential (the configured project code is only a 
 ### Phase 1: Compatibility and Trust Contract
 **Goal**: Maintainers can reproduce the candidate build and determine exactly which protocol and trust contracts the bridge can support before committing to SDK or IPC choices.
 **Depends on**: Nothing (first phase)
-**Requirements**: SPEC-01, SPEC-02, SPEC-03, BUILD-01
+**Requirements**: SPEC-01, SPEC-02, SPEC-03, SPEC-04, SPEC-05, BUILD-01
 **Success Criteria** (what must be TRUE):
   1. Maintainers can inspect a dated matrix of exact client versions, upstream and downstream MCP revisions, candidate SDK release and supported combinations; an unsupported combination produces an explicit rejection in the compatibility checks.
   2. Maintainers can reproduce sanitized provider discovery fixtures and inspect any exact-origin exception while issuer, resource and endpoint validation remains strict elsewhere.
   3. Maintainers can inspect a threat model covering callbacks, upstream content, local peers, storage and ambiguous retries, with evidence supporting the selected IPC/signing and deployment mechanisms.
   4. Contributors can reproduce a locked build with an exact supported Swift toolchain and reviewed direct/transitive dependencies and build plugins; mutable declarations have explicit reviewed resolutions.
+  5. Maintainers can inspect a sanitized recurrence investigation and a go/revise/blocked decision linking the proposed remedy to evidence; unresolved provider behavior or insufficient causal evidence prevents Phase 2 implementation.
 **Plans**: TBD
+
+Planning gate: Complete SPEC-04 and SPEC-05 under the [recurrence audit](../biorender-audit.md). A shared Swift broker remains a hypothesis for this failure, not an established fix. Diagnostic feasibility experiments may proceed in authorized Phase 1; product implementation requires a supported go decision.
 
 Planning gate: SDK 0.12.1 remains a candidate. Resolve exact released behavior, protocol-era differences and the full dependency graph before adoption. Research recommendations are inputs, not acceptance evidence.
 
@@ -112,7 +115,7 @@ Acceptance boundary: configuration, library tests and one client's success canno
   3. Users can inspect a release readiness record with tested versions, elapsed persistence interval, security/dependency findings and unresolved provider limits; failed gates stay open and no permanent-authorization promise is made.
 **Plans**: TBD
 
-Acceptance gate: measure actual newly issued expiries; historical token lifetimes are not a substitute. Provider rejection or insufficient elapsed evidence leaves persistence acceptance open.
+Acceptance gate: reproduce the relevant September 30 failure conditions after the proposed remedy; reauthorization alone does not close the defect. Measure actual newly issued expiries; historical token lifetimes are not a substitute. Provider rejection or insufficient elapsed evidence leaves persistence acceptance open.
 
 ## Progress
 
@@ -128,4 +131,4 @@ Acceptance gate: measure actual newly issued expiries; historical token lifetime
 | 6. Three-Client Acceptance | 0/TBD | Not started | - |
 | 7. Persistence and Release Evidence | 0/TBD | Not started | - |
 
-Coverage: 31/31 v1 requirements assigned exactly once; 0 implemented. No v1 graphical UI phase is planned; optional native status UI remains v2.
+Coverage: 33/33 v1 requirements assigned exactly once; 0 implemented. No v1 graphical UI phase is planned; optional native status UI remains v2.

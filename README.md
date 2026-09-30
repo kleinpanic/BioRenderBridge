@@ -10,6 +10,10 @@ The previous setup produced repeated browser prompts and later authentication fa
 
 See the [BioRender audit](docs/biorender-audit.md) for observations, sources, uncertainties, and the boundary between a local defect and an upstream policy.
 
+## Recurrence and feasibility gate
+
+On September 30, the existing Codex connection again failed when BioRender rejected its saved refresh credential. The cause remains unresolved. The roadmap now requires controlled causal investigation and an explicit go/revise/blocked decision before product implementation. A Swift rewrite is not yet a demonstrated remedy. See the [updated audit](docs/biorender-audit.md).
+
 ## Intended behavior
 
 - One locally managed upstream authorization used through all three clients.

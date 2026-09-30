@@ -5,6 +5,10 @@
 **Researched:** 2026-09-29
 **Confidence:** MEDIUM overall; LOW for upstream grant policy and historical failure causality
 
+## September 30 update — precedence over initial recommendation
+
+The proposed architecture below is conditional. Codex and its helper again failed on rejected refresh authorization; see the [recurrence audit](../../biorender-audit.md). Phase 1 now owns SPEC-04/05: distinguish local and upstream causes, then record a go/revise/blocked decision before Phase 2 product implementation. Swift and central ownership alone are not evidence that this incident will be prevented. The current seven-phase ROADMAP supersedes the five-phase research suggestion below. Peekaboo's separate daemon failure is outside BioRender scope.
+
 ## Executive Summary
 
 BioRenderBridge should be a small native Swift service that owns one upstream authorization and serves Codex, Claude Code, and OpenCode through separate stdio frontends. Use one per-user broker, Keychain-backed credentials, a single-flight refresh coordinator, and isolated protocol contexts. Ordinary startup and recovery must remain browser-free; explicit login/reconnect is the only browser-launch path. This initialization establishes a proposed design and delivery gates, not an implemented or validated bridge.

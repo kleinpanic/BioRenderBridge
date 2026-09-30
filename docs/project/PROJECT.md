@@ -56,6 +56,12 @@ Primary sources for subsequent research:
 - https://code.claude.com/docs/en/mcp
 - https://opencode.ai/docs/mcp-servers/
 
+## September 30 correction
+
+Codex startup and a direct helper check again failed with `invalid_grant`; the prior authentication recovery failed persistence. The cause remains unproven. A Swift broker may prevent local races and improve recovery, but cannot be presumed to fix this rejection. The [audit](../biorender-audit.md) now requires causal investigation and a go/revise/blocked feasibility decision before Phase 2. Provider-limited behavior must remain an explicit blocker or scope decision, not be relabeled as a permanent fix.
+
+Peekaboo also failed startup due to a daemon/socket ownership mismatch. Track it as separate operational work, outside this project's implementation scope. Neither failure is fixed by this documentation update.
+
 ## Constraints
 
 - **Location:** the repository root is the canonical project home; do not relocate it or create alternative checkouts automatically.
@@ -71,7 +77,7 @@ Primary sources for subsequent research:
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
 | Build in Swift | Explicit user preference for native implementation and controlled dependencies | Accepted; implementation pending |
-| One shared adapter for three harnesses | Centralize refresh coordination and reduce separate authorization chores | Proposed architecture; validate during research |
+| One shared adapter for three harnesses | Centralize refresh coordination and reduce separate authorization chores | Conditional hypothesis; requires SPEC-04/05 evidence before implementation |
 | Keychain-backed credential management | Avoid plaintext credentials in project/configuration artifacts | Required; implementation pending |
 | Deliberate login, automatic refresh | Balance persistent access with the prohibition on surprise browser launches | Required; implementation pending |
 | Separate present connectivity from persistence | Prior immediate-success claims failed overnight | Required verification boundary |
